@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff4e8a, #ff9a9e);
+    text-align: center;
+    color: white;
+}
+
+.container {
+    margin-top: 80px;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+p {
+    font-size: 1.4em;
+    width: 70%;
+    margin: auto;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 20px;
+    transition: 0.3s;
+}
+
+.yes {
+    background-color: #28a745;
+    color: white;
+}
+
+.no {
+    background-color: #dc3545;
+    color: white;
+    position: absolute;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    bottom: -20px;
+    color: pink;
+    font-size: 20px;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-800px); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Pretty Akua ❤️</h1>
+    <h2>Will You Be My Valentine?</h2>
+    <p>
+        From the moment I met you, my world became softer,
+        brighter, and a little more magical ✨  
+        You are my favorite notification, my calm place,
+        and the best part of my day.
+    </p>
+
+    <button class="yes" onclick="yesClicked()">Yes 💕</button>
+    <button class="no" id="noBtn" onmouseover="moveNo()">No 😅</button>
+
+    <!-- SoundCloud Player -->
+    <div style="margin-top: 20px;">
+      <iframe width="300" height="120" scrolling="no" frameborder="no"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/oliviaadean/so-easy-to-fall-in-love&auto_play=true">
+      </iframe>
+    </div>
+</div>
+
+<script>
+// YES Button
+function yesClicked() {
+    document.body.innerHTML = `
+        <h1 style="margin-top:150px;">YAYYY!!! ❤️😍</h1>
+        <p>Specially made for You</p>
+        <p>You just made me the happiest person alive 💖</p>
+    `;
+}
+
+// NO Button Moving
+function moveNo() {
+    const btn = document.getElementById("noBtn");
+    btn.style.top = Math.random() * (window.innerHeight - 60) + "px";
+    btn.style.left = Math.random() * (window.innerWidth - 120) + "px";
+}
+
+// Floating Hearts Generator
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+}, 300);
+</script>
+
+</body>
+</html>
